@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In Page</title>
 </head>
-    <body>
 
         <style>
             #form, body{
@@ -72,7 +71,7 @@
             }
             
         </style>
-        
+        <body onload="displayLogIns()">
         <form>
         <h3></h3>
         <div id="form">
@@ -86,7 +85,7 @@
                 <input id="password" type="text" placeholder="Enter password here" name="name" required/>
             </div>
         
-            <input type="button" value="Add" id="submit" onclick="add()">
+            <input type="button" value="Add" id="submit" onclick="postRequest()">
         </div>
 
             <div id="display"></div>
