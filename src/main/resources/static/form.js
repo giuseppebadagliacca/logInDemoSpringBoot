@@ -29,8 +29,8 @@ function displayLogIns() {
                  <p>email: ${data[i].email}</p>
                  <p>password: ${data[i].password}</p>
                  <div id="updateDeleteBtns">
-                     <input type="button" value="Update" id="Update" onclick="Update()">
-                     <input type="button" value="Delete" id="Delete" onclick="deleteRequest(${data[i].id})">
+                     <input type="button" value="update" id="update" onclick="updateRequest()">
+                     <input type="button" value="delete" id="delete" onclick="deleteRequest(${data[i].id})">
                  </div>
              </div>`
                 displayDivDOM.innerHTML += displayCard;
@@ -41,15 +41,15 @@ function displayLogIns() {
 
 
 function deleteRequest(id) {
-    fetch(`http://localhost:8080/login/${id}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
-
-    const element = document.getElementById(`"${id}"`);
-    element.remove();
+    // fetch(`http://localhost:8080/login/${id}`, {
+    //     method: 'DELETE',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    // });
+    console.log(id);
+    const element = document.getElementById(`${id}`);
+    console.log(element);
 }
 
 function postRequest() {
@@ -66,7 +66,6 @@ function postRequest() {
             body: JSON.stringify(inputData),
         })
             .then(data => {
-                console.log(data)
                 if (data.status === 200) {
                     displayMsg("Success", 'green', "lightgreen")
                 } else {
